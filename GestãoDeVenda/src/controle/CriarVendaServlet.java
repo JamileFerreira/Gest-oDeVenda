@@ -60,12 +60,12 @@ public class CriarVendaServlet extends HttpServlet {
 	        	VendaBD vendaBD = new VendaBD();
 	        	vendaBD.cadastrarVenda(venda);
 	        	
-	        	/*if (result){
-	        		RequestDispatcher dispatcher = request.getRequestDispatcher("TeamRegisterSuccessful.jsp");
-	                dispatcher.forward(request,response);
-	        	}else{
-	        		System.out.println("Não conseguiu inserir");
-	        	}	  */      	
+	        	//if (result){
+	        		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+	                dispatcher.forward(request,response);       
+	        	//}else{
+	        	//	System.out.println("Não conseguiu inserir");
+	        	//}	  */      	
 	        }   	
     }
 

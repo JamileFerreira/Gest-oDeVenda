@@ -2,7 +2,11 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +17,16 @@ import modelo.bd.VendaBD;
 import modelo.ng.Venda;
 
 /**
- * Servlet implementation class ExcluirVendaServlet
+ * Servlet implementation class PreencherTelaAtualizarVenda
  */
-@WebServlet("/ExcluirVendaServlet")
-public class ExcluirVendaServlet extends HttpServlet {
+@WebServlet("/PreencherTelaAtualizarVenda")
+public class PreencherTelaAtualizarVenda extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ExcluirVendaServlet() {
+    public PreencherTelaAtualizarVenda() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,9 +44,8 @@ public class ExcluirVendaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		processoRequisição(request, response);
 	}
-	
 	
 	protected void processoRequisição(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
@@ -50,15 +53,17 @@ public class ExcluirVendaServlet extends HttpServlet {
 	        try (PrintWriter out = response.getWriter()) {
 	        	
 	            Venda venda=new Venda();
-	            System.out.println(request.getParameter("idVenda"));
-	        
-	        	venda.setIdVenda(Integer.parseInt(request.getParameter("idVenda")));
+	            
 	        	
+	        	VendaBD vendaBD = new VendaBD();	        	
 	        	
-	        	VendaBD vendaBD = new VendaBD();
-	        	vendaBD.cadastrarVenda(venda);
+	        	ArrayList<Venda> vendas = new ArrayList<Venda>();
+	        	vendas=vendaBD.getVendas();
+	        	//String date = new SimpleDateFormat("dd/MM/y").format(Calendar.getInstance().getTime());
 	        	
-	        	  	
+	        	request.setAttribute("vendas", vendas);
+	        	RequestDispatcher dispatcher = request.getRequestDispatcher("AtualizarVenda.jsp");
+	            dispatcher.forward(request,response);  	
 	        }   	
     }
 

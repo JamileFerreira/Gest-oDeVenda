@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>Cadastro de Vendas</h3><br>
     <form name="venda" method="post" action="CriarVendaServlet">
         Valor Total<input type="text" name="valortotal" size="10"><br><br>
-        Data da venda<br><input type="text" name="dataVenda" size="10"><br><br>
-		Id Filial:<br><input type="text" name="idFilial" size="10"><br><br>
-        Id Cliente:<br><input type="text" name="idCliente" size="10"><br><br>
+        Data da venda<input type="text" name="dataVenda" size="10"><br><br>
+		Id Filial:<input type="text" name="idFilial" size="10"><br><br>
+        Id Cliente:<input type="text" name="idCliente" size="10"><br><br>
         <input type="submit" value="Cadastrar venda"><br><br>	
     </form>
 </body>

@@ -5,18 +5,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.chart.PieChart.Data;
 import modelo.ng.Venda;
 
 public class VendaBD {
-
+	//<Venda>ArrayList vendas=new ArrayList();
 	Connection con;
 	PreparedStatement stmt;
 	Venda venda;
 	ResultSet rs;
-	List<Venda> vendas;
+	ArrayList<Venda> vendas=new ArrayList<Venda>();
 	static BDMySQL bd = BDMySQL.getInstance();
 
 	public VendaBD() {
@@ -51,7 +52,7 @@ public class VendaBD {
 	public Venda getVenda(Venda venda) {
 		ResultSet rs = null;
 		try {
-			stmt = con.prepareStatement("select * from venda where idVEnda= ?");
+			stmt = con.prepareStatement("select * from venda where idVenda= ?");
 			stmt.setInt(1, venda.getIdVenda());
 			rs = stmt.executeQuery();
 
@@ -70,28 +71,60 @@ public class VendaBD {
 		return venda;
 	}
 	
+	public ArrayList <Venda> getVendas() {
+		ResultSet rs = null;
+		try {
+			stmt = con.prepareStatement("select * from venda");
+			rs = stmt.executeQuery();
+
+			while(rs.next()){
+			    venda = new Venda();
+			    venda.setIdCliente(rs.getInt("idVenda"));
+			    venda.setDataVenda(rs.getDate("dataVenda"));
+			    venda.setIdCliente(rs.getInt("idCliente"));
+			    venda.setIdFilial(rs.getInt("idFilial"));
+			    venda.setValortotal(rs.getDouble("valortotal"));
+			    vendas.add(venda);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return vendas;
+	}
+	
 	public int ExluirVenda(Venda venda) {
 		ResultSet rs = null;
 		try {
 			stmt = con.prepareStatement("delete * from venda where idVenda= ?");
 			stmt.setInt(1, venda.getIdVenda());
-			rs = stmt.executeQuery();
+			bd.executarSQL(stmt);
 
-			rs.next();
-
-			venda = new Venda();
-			venda.setDataVenda(rs.getDate("dataVenda"));
-			venda.setIdCliente(rs.getInt("idCliente"));
-			venda.setIdFilial(rs.getInt("idFilial"));
-			venda.setValortotal(rs.getDouble("valortotal"));
-			return bd.executarSQL(stmt);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return  bd.executarSQL(stmt);
 	}
-	// listarVendas
-	//AtualizarVenda
+	
+	public int AtualizarVenda(Venda venda) {
+		try {
+			stmt = con
+					.prepareStatement("update venda set dataVenda=?, idCliente=?, idFilial=?, valortotal=? where idVenda = ?");
+			
+			stmt.setDate(1, venda.getDataVenda());
+			stmt.setInt(2, venda.getIdCliente());
+			stmt.setInt(3, venda.getIdFilial());
+			stmt.setDouble(4, venda.getValortotal());
+			
+			bd.executarSQL(stmt);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return  bd.executarSQL(stmt);
+	}
 
 }
