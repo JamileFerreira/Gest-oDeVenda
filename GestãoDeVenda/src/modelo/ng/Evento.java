@@ -1,6 +1,6 @@
 package modelo.ng;
 
-public class Negocio {
+public class Evento {
 
 	int id;
 }
