@@ -12,7 +12,6 @@ import javafx.scene.chart.PieChart.Data;
 import modelo.ng.Venda;
 
 public class VendaBD {
-	//<Venda>ArrayList vendas=new ArrayList();
 	Connection con;
 	PreparedStatement stmt;
 	Venda venda;
@@ -30,14 +29,16 @@ public class VendaBD {
 			// mudar a query
 			stmt = con.prepareStatement(
 
-					"insert into funcionario(nome) values(?)");
+					"insert into venda(idVenda,valorTotal, dataVenda, idFilial, idCliente) values(?????)");
 
 			venda = new Venda();
-
-			stmt.setDouble(1, venda.getValortotal());
-			stmt.setDate(2, venda.getDataVenda());
-			stmt.setInt(3, venda.getIdFilial());
-			stmt.setInt(4, venda.getIdCliente());
+			venda.setIdVenda(498201511);
+			stmt.setInt(1, venda.getIdVenda());
+			stmt.setDouble(2, venda.getValortotal());
+			//stmt.setString(3, "2006-12-24");
+			stmt.setInt(4, venda.getIdFilial());
+			stmt.setInt(5, venda.getIdCliente());
+			
 
 		bd.executarSQL(stmt);
 			System.out.println("Finalizei!");
