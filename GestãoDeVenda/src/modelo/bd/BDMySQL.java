@@ -31,7 +31,7 @@ public class BDMySQL {
 
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			con = (Connection) DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/fichaFuncional","root","241512");
+					"jdbc:mysql://localhost:3306/mydb","root","admin");
 
 		} catch (Exception e) {
 			Utilidade.SOP(Mensagem.getMensagem(Mensagem.NAO_FOI_POSSIVEL_CONECTAR_AO_BANCO));
