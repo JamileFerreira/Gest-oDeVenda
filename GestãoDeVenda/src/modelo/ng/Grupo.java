@@ -44,4 +44,5 @@ public class Grupo {
 		this.telefone = telefone;
 	}
 
+	int id;
 }
