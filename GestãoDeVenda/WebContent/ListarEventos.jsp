@@ -7,6 +7,11 @@
 <title>Listar Todos os Eventos</title>
 </head>
 <body>
-		<action = "/ListarEventosServlet"> 
+		<h1>Listar Evento</h1>
+			<form action="ListarEventoServlet">
+				Informe o código do Evento: <input type="text" name="id_evento" /><br />
+				<input type="submit" value="Listar Eventos"><br><br>
+			</form> 
+		
 </body>
 </html>

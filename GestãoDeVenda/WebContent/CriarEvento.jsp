@@ -7,11 +7,12 @@
 		<title>CRIAR EVENTO</title>
 	</head>
 	<body>
-		<form action="CriarEventoServelet">
+		<form action="CriarEventoServlet">
+			<h1>Criar Novo Evento</h1>
 				Identificador: <input type="text" name="id_evento" /><br />
 				Nome do Evento: <input type="text" name="nome_evento" /><br />
 				Descrição: <input type="text" name="descricao_evento" /><br />
-				Data Prevista: <input type="Date" name="data_evento" /><br />
+				Data Prevista: <input type="text" name="data_evento" /><br />
 				<input type="submit" value="Gravar" />
 		</form>
 

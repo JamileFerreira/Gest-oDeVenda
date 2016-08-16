@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import modelo.ng.Evento;
 import modelo.ng.Venda;
@@ -26,10 +27,10 @@ public class EventoBD {
 			stmt = con.prepareStatement(
 
 					"insert into evento(idEvento, nome, descrição, dataCriação)"
-					+ " values(?, ?, ?, ?)"
+					+ " values(? ? ? ?)"
 			);
 
-			evento = new Evento();
+			
 			
 			stmt.setInt(1, evento.getId());
 			stmt.setString(2, evento.getNome());
@@ -37,7 +38,9 @@ public class EventoBD {
 			stmt.setDate(4, evento.getData());
 			
 			bd.executarSQL(stmt);
-			System.out.println("Finalizei!");
+			
+			
+			
 		
 
 		} catch (SQLException e) {
@@ -55,8 +58,8 @@ public class EventoBD {
 
 			rs.next();
 
-			evento = new Evento();
-			//evento.setData(rs.getString("dataCriação"));
+			
+			evento.setData(rs.getDate("dataCriação"));
 			evento.setDescricao(rs.getString("descrição"));
 			evento.setId(rs.getInt("idEvento"));
 			evento.setNome(rs.getString("nome"));
@@ -76,7 +79,7 @@ public class EventoBD {
 
 			while(rs.next()){
 			    evento = new Evento();
-			    //evento.setData(rs.getString("dataCriação"));
+			    evento.setData(rs.getDate("dataCriação"));
 			    evento.setDescricao(rs.getString("descrição"));
 			    evento.setId(rs.getInt("idEvento"));
 			    evento.setNome(rs.getString("nome"));		    
@@ -114,7 +117,7 @@ public class EventoBD {
 			stmt.setInt(1, evento.getId());
 			stmt.setString(2, evento.getNome());
 			stmt.setString(3, evento.getDescricao());
-			//stmt.setString(4, evento.getData());
+			stmt.setDate(4, evento.getData());
 			
 			bd.executarSQL(stmt);
 			
