@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>INSERIR NOVO EVENTO</h1>
-	 <form name="evento" method="post" action="CriarEventoServlet">
+	 <form name="evento" method="post" action="/CriarEventoServlet">
         Código <input type="text" name="id_evento" size="10"><br><br>
         Nome <input type="text" name="nome_evento" size="10"><br><br>
 		Descrição <input type="text" name="desc_evento" size="10"><br><br>
