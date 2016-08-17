@@ -1,21 +1,15 @@
 package modelo.bd;
 
-
-
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import javax.swing.JOptionPane;
 import com.mysql.jdbc.*;
-
 import moledo.utilidade.Mensagem;
 import moledo.utilidade.Utilidade;
 
-
-
-public class BDMySQL {
+public class ConEventoBD {
 	private static BDMySQL singleton = null;
 	private Connection con;
 
@@ -26,20 +20,15 @@ public class BDMySQL {
 		return singleton;
 	}
 
-	BDMySQL() {
+	public Connection getConexao() {
 		try {
 
-			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = (Connection) DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/fichaFuncional","root","241512");
-
+			Class.forName("com.mysql.jdbc.Driver");
+			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","admin");
+            JOptionPane.showMessageDialog(null,"conectou");
 		} catch (Exception e) {
 			Utilidade.SOP(Mensagem.getMensagem(Mensagem.NAO_FOI_POSSIVEL_CONECTAR_AO_BANCO));
 		}
-	}
-
-	public Connection getConexao() {
-
 		return con;
 
 	}
@@ -87,5 +76,4 @@ public class BDMySQL {
 		fecharConexao();
 		super.finalize();
 	}
-
 }
