@@ -24,7 +24,7 @@ public class ConEventoBD {
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
-			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","admin");
+			con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/my","root","admin");
             JOptionPane.showMessageDialog(null,"conectou");
 		} catch (Exception e) {
 			Utilidade.SOP(Mensagem.getMensagem(Mensagem.NAO_FOI_POSSIVEL_CONECTAR_AO_BANCO));
