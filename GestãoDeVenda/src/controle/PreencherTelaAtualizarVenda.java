@@ -59,6 +59,7 @@ public class PreencherTelaAtualizarVenda extends HttpServlet {
 	        	
 	        	ArrayList<Venda> vendas = new ArrayList<Venda>();
 	        	vendas=vendaBD.getVendas();
+	        	System.out.println(vendas.get(0).getValortotal());
 	        	//String date = new SimpleDateFormat("dd/MM/y").format(Calendar.getInstance().getTime());
 	        	
 	        	request.setAttribute("vendas", vendas);

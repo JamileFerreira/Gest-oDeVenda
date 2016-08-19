@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Cadastro de Grupo</h3><br>
-    <form name="venda" method="post" action="CriarGrupoServlet">
+    <form name="grupo" method="post" action="CriarGrupoServlet">
         Nome<input type="text" name="nome" size="10"><br><br>
         CNPJ<input type="text" name="cnpj" size="10"><br><br>
 		Email:<input type="text" name="email" size="10"><br><br>

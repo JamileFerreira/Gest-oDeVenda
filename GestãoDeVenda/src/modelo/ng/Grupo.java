@@ -3,7 +3,7 @@ package modelo.ng;
 public class Grupo {
 	private int idGrupo;
 	private String nome;
-	private String cnpj;
+	private int cnpj;
 	private String email;
 	private String site;
 	private String telefone;
@@ -19,10 +19,10 @@ public class Grupo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCnpj() {
+	public int getCnpj() {
 		return cnpj;
 	}
-	public void setCnpj(String cnpq) {
+	public void setCnpj(int cnpq) {
 		this.cnpj = cnpq;
 	}
 	public String getEmail() {

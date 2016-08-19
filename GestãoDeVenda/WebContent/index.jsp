@@ -10,8 +10,9 @@
 
 <h3>Venda</h3><br>
 <a href="CriarVenda.jsp">Cadastrar Venda</a><br>
-<a href="PreencherTelaAtualizarVenda">Atualizar Venda</a><br>
-<a href="PreecherTelaExcluirVendaServlet">Excluir Venda</a><br>
+<a href="CriarGrupo.jsp">Cadastrar Grupo</a><br>
+<a href="ListarGrupos.jsp">Atualizar Venda</a><br>
+<a href="PreencherTelaAtualizarVenda">Excluir Venda</a><br>
 
 </body>
 </html>

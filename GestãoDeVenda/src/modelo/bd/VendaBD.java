@@ -32,7 +32,7 @@ public class VendaBD {
 					"insert into venda(idVenda,valorTotal, dataVenda, idFilial, idCliente) values(?????)");
 
 			venda = new Venda();
-			venda.setIdVenda(498201511);
+			venda.setIdVenda(498201512);
 			stmt.setInt(1, venda.getIdVenda());
 			stmt.setDouble(2, venda.getValortotal());
 			//stmt.setString(3, "2006-12-24");

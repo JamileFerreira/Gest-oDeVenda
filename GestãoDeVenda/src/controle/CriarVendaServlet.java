@@ -3,6 +3,7 @@ package controle;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -66,7 +67,8 @@ public class CriarVendaServlet extends HttpServlet {
 	        	//}else{
 	        	//	System.out.println("Não conseguiu inserir");
 	        	//}	  */      	
-	        }   	
+	        }   
+	        
     }
 
 }

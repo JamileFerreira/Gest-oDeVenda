@@ -3,7 +3,6 @@ package controle;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.bd.GrupoBD;
-import modelo.bd.VendaBD;
 import modelo.ng.Grupo;
-import modelo.ng.Venda;
 
 /**
  * Servlet implementation class CriarGrupoServlet
@@ -43,26 +40,26 @@ public class CriarGrupoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processoRequisição(request, response);
+		processoRequisicao(request, response);
 	}
 	
-	protected void processoRequisição(HttpServletRequest request, HttpServletResponse response)
+	protected void processoRequisicao(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
 		 response.setContentType("text/html;charset=UTF-8");
 	        try (PrintWriter out = response.getWriter()) {
 	        	
 	        	Grupo grupo=new Grupo();
 	            grupo.setNome(request.getParameter("nome"));
-	            grupo.setCnpj(request.getParameter("cnpj"));
+	            grupo.setCnpj(Integer.parseInt(request.getParameter("cnpj")));
 	            grupo.setEmail(request.getParameter("email"));
-	            grupo.setEmail(request.getParameter("site"));
+	            grupo.setSite(request.getParameter("site"));
 	            grupo.setTelefone(request.getParameter("telefone"));
 	            GrupoBD grupoBD = new GrupoBD();
 	            grupoBD.cadastrarGrupo(grupo);
 	        	
 	        	//if (result){
-	        		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-	                dispatcher.forward(request,response);       
+	        		//RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+	                //dispatcher.forward(request,response);       
 	        	//}else{
 	        	//	System.out.println("Não conseguiu inserir");
 	        	//}	  */      	
