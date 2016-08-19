@@ -75,13 +75,14 @@ public class GrupoBD {
 		return grupos;
 	}
 	
-	public ArrayList <Grupo> getGrupo(int id) {
+	public Grupo getGrupo(int id) {
 		ResultSet rs = null;
+		System.out.println("2222222222222222");
 		try {
-			stmt = con.prepareStatement("select * from grupo where idGrupo=1?");
-			stmt.setInt(1, grupo.getIdGrupo());
+			stmt = con.prepareStatement("select * from grupo where idGrupo=?");
+			stmt.setInt(1,id);
 			rs = stmt.executeQuery();
-
+          
 			rs.next();
 			    grupo = new Grupo();
 			    grupo.setCnpj(rs.getInt("cnpj"));
@@ -91,15 +92,23 @@ public class GrupoBD {
 			    grupo.setSite(rs.getString("site"));
 			    grupo.setTelefone(rs.getString("telefone"));
 			    //grupos.add(grupo);
-			    System.out.println("wwwwwwwwwwwww");
+			    
+			    System.out.println(grupo.getCnpj());
+			    System.out.println(grupo.getEmail());
+			    System.out.println(grupo.getIdGrupo());
 			    System.out.println(grupo.getNome());
+			    System.out.println(grupo.getSite());
+			    System.out.println(grupo.getTelefone());
+			    
+			    System.out.println("wwwwwwwwwwwww");
+			   // System.out.println(grupo.getNome());
 			
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return grupos;
+		return grupo;
 	}
 
 	
@@ -119,7 +128,8 @@ public class GrupoBD {
 		}
 		return  bd.executarSQL(stmt);
 	}
-	public int AtualizarVenda(int id) {
+	public int AtualizarGrupo(Grupo grupo) {
+		System.out.println("oiiiiiiiiiiiii");
 		try {
 			stmt = con
 					.prepareStatement("update grupo set nome=?, cnpj=?, email=?, site=?, telefone=? where idGrupo = ?");
@@ -129,6 +139,7 @@ public class GrupoBD {
 			stmt.setString(3, grupo.getEmail());
 			stmt.setString(4, grupo.getSite());
 			stmt.setString(5, grupo.getTelefone());
+			stmt.setInt(6, grupo.getIdGrupo());
 			
 			bd.executarSQL(stmt);
 			

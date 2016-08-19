@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<h3>Venda</h3><br>
-<a href="CriarVenda.jsp">Cadastrar Venda</a><br>
-<a href="CriarGrupo.jsp">Cadastrar Grupo</a><br>
-<a href="ListarGrupos">Listar Grupos</a><br>
-<a href="PreencherTelaAtualizarVenda">Excluir Venda</a><br>
+<h3>Sistema fase Demo</h3><br>
+Grupo: <br>
+<a href="CriarGrupo.jsp">Cadastrar</a><br>
+<a href="EditarGrupoId.jsp">Editar</a><br>
+<a href="ExcluirGrupoJ.jsp">Excluir</a><br>
 
 </body>
 </html>

@@ -3,6 +3,7 @@ package controle;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,8 +52,8 @@ public class ExcluirGrupo extends HttpServlet {
 	            grupoBD.ExluirGrupo(id);
 	        	
 	        	//if (result){
-	        		//RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-	                //dispatcher.forward(request,response);       
+	        		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+	                dispatcher.forward(request,response);       
 	        	//}else{
 	        	//	System.out.println("Não conseguiu inserir");
 	        	//}	  */      	
