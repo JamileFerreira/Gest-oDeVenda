@@ -1,0 +1,62 @@
+package controle;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import modelo.bd.GrupoBD;
+
+/**
+ * Servlet implementation class ExcluirGrupo
+ */
+@WebServlet("/ExcluirGrupo")
+public class ExcluirGrupo extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ExcluirGrupo() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		processoRequisicao(request, response);
+	}
+	protected void processoRequisicao(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
+		 response.setContentType("text/html;charset=UTF-8");
+	        try (PrintWriter out = response.getWriter()) {
+	        	GrupoBD grupoBD=new GrupoBD();
+	        	int id=Integer.parseInt(request.getParameter("id"));
+	            
+	            grupoBD.ExluirGrupo(id);
+	        	
+	        	//if (result){
+	        		//RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+	                //dispatcher.forward(request,response);       
+	        	//}else{
+	        	//	System.out.println("Não conseguiu inserir");
+	        	//}	  */      	
+	        }   	
+    }
+
+}

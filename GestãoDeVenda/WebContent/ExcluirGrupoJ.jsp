@@ -7,12 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<h3>Venda</h3><br>
-<a href="CriarVenda.jsp">Cadastrar Venda</a><br>
-<a href="CriarGrupo.jsp">Cadastrar Grupo</a><br>
-<a href="ListarGrupos">Listar Grupos</a><br>
-<a href="PreencherTelaAtualizarVenda">Excluir Venda</a><br>
-
+<form name="grupo" method="post" action="ExcluirGrupo">
+Digite o id do Grupo 
+Excluir Grupo<input type="text" name="id" size="10"><br><br>
+<input type="submit" value="Excluir Grupo"><br><br>	
+</form>
 </body>
 </html>
